@@ -13,6 +13,8 @@ import org.springframework.data.redis.core.ReactiveRedisOperations;
 import redis.embedded.RedisServer;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
 public class InfrastructureApplication implements CommandLineRunner, EnvironmentAware {
@@ -42,13 +44,13 @@ public class InfrastructureApplication implements CommandLineRunner, Environment
         Person p1 = new Person();
         p1.setId(101);
         p1.setName("cherry1");
-        ops.opsForValue().set("person:"+p1.getId(),p1).subscribe();
-
         Person p2 = new Person();
         p2.setId(102);
         p2.setName("cherry2");
-        ops.opsForValue().set("person:"+p2.getId(),p2).subscribe();
-
+        Map<String,String> persons = new HashMap<>();
+        persons.put(p1.getId()+"",p1.getName());
+        persons.put(p2.getId()+"",p2.getName());
+        ops.opsForHash().putAll("person",persons).subscribe();
     }
 
     @Override
