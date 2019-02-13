@@ -17,6 +17,9 @@
     <modules>
         <module>reactive-dubbo-starter</module>
         <module>reactive-dubbo-extensions</module>
+        <module>demo/facade</module>
+        <module>demo/provider</module>
+        <module>demo/redis-and-zookeeper</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
@@ -35,24 +38,24 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>2.6.2</version>
-                <scope>provided</scope>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>io.projectreactor</groupId>
-                <artifactId>reactor-core</artifactId>
-                <version>3.2.5.RELEASE</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>commons-logging</artifactId>
-                        <groupId>commons-logging</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba</groupId>-->
+                <!--<artifactId>dubbo</artifactId>-->
+                <!--<version>2.6.2</version>-->
+                <!--<scope>provided</scope>-->
+                <!--<optional>true</optional>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>io.projectreactor</groupId>-->
+                <!--<artifactId>reactor-core</artifactId>-->
+                <!--<version>3.2.5.RELEASE</version>-->
+                <!--<exclusions>-->
+                    <!--<exclusion>-->
+                        <!--<artifactId>commons-logging</artifactId>-->
+                        <!--<groupId>commons-logging</groupId>-->
+                    <!--</exclusion>-->
+                <!--</exclusions>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
     <build>
