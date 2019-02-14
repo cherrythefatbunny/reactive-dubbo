@@ -1,4 +1,4 @@
-package com.github.cherrythefatbunny.api;
+package com.github.cherrythefatbunny.demo.api;
 
 import reactor.core.publisher.Mono;
 

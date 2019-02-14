@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>reactive-dubbo</artifactId>
+        <groupId>com.github.cherrythefatbunny</groupId>
+        <version>1.0.0</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
-    <artifactId>provider</artifactId>
-    <version>1.0.0</version>
-    <name>reactive dubbo::demo provider</name>
-    <description>Demo provider project for reactive dubbo</description>
+    <artifactId>consumer</artifactId>
+    <name>reactive dubbo::demo consumer</name>
 
     <properties>
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
@@ -75,14 +80,13 @@
             <artifactId>netty-all</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-zookeeper</artifactId>
@@ -118,5 +122,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>
