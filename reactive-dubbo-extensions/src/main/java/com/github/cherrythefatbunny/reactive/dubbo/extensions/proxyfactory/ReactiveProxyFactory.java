@@ -14,7 +14,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author cherrythefatbunny
@@ -33,29 +32,21 @@ public abstract class ReactiveProxyFactory extends AbstractProxyFactory {
         Invoker<T> invoker = delegating.getInvoker(proxy, type, url);
         Invoker<T> wrapper = (Invoker<T>) Proxy.newProxyInstance(getClass().getClassLoader(),
                 new Class[]{Invoker.class}, new InvocationHandler() {
-            class MonoResult {
-                Object val;
-                public void setReturnVal(Object val) {
-                    this.val = val;
-                }
-            }
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Object ret = method.invoke(invoker, args);
                 if(method.getName().equals("invoke")) {
                     RpcResult rpcResult = (RpcResult) ret;
                     Object val = rpcResult.getValue();
+                    //retrieve real returned value and create new RpcResult
                     if(val instanceof Mono) {
                         Mono mono = (Mono) val;
-                        MonoResult result = new MonoResult();
-                        mono.subscribe(result::setReturnVal);
-                        return new RpcResult(result.val);
+                        return new RpcResult(mono.block());
                     }
+                    //retrieve real returned value,collect with an ArrayList and create new RpcResult
                     if(val instanceof Flux) {
-                        Flux flux = (Flux) val;
-                        List result = new ArrayList();
-                        flux.subscribe(result::add);
-                        return new RpcResult(result);
+                        Flux<Object> flux = (Flux) val;
+                        return new RpcResult(flux.collect(ArrayList::new, ArrayList::add).block());
                     }
                 }
                 return ret;

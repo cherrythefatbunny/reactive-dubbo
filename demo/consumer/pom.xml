@@ -2,16 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>reactive-dubbo</artifactId>
-        <groupId>com.github.cherrythefatbunny</groupId>
-        <version>1.0.0</version>
-        <relativePath>../../pom.xml</relativePath>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>consumer</artifactId>
+    <version>1.0.0</version>
     <name>reactive dubbo::demo consumer</name>
 
     <properties>
@@ -50,7 +45,7 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>com.github.cherrythefatbunny.api</groupId>
+            <groupId>com.github.cherrythefatbunny.demo</groupId>
             <artifactId>facade</artifactId>
             <version>1.0.0</version>
         </dependency>
@@ -90,6 +85,12 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-zookeeper</artifactId>
+        </dependency>
+        <!--reactive dubbo dependency-->
+        <dependency>
+            <groupId>com.github.cherrythefatbunny</groupId>
+            <artifactId>reactive-dubbo-starter</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -18,8 +18,8 @@
         <module>reactive-dubbo-starter</module>
         <module>reactive-dubbo-extensions</module>
         <module>demo/facade</module>
-        <module>demo/provider</module>
         <module>demo/redis-and-zookeeper</module>
+        <module>demo/provider</module>
         <module>demo/consumer</module>
     </modules>
     <properties>

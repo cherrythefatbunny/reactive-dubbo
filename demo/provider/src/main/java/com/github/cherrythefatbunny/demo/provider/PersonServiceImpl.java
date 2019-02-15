@@ -1,28 +1,35 @@
 package com.github.cherrythefatbunny.demo.provider;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.github.cherrythefatbunny.api.PersonService;
+import com.github.cherrythefatbunny.demo.api.Person;
+import com.github.cherrythefatbunny.demo.api.PersonService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.RedisOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service(proxy = "reactivejavassist",timeout = 100000)
 public class PersonServiceImpl implements PersonService, InitializingBean {
     @Autowired
-    RedisOperations<String, String> ops;
-    HashOperations<String,String,String> hashOps;
+    @Qualifier("jsonTemplate")
+    RedisTemplate<String, Person> ops;
+    HashOperations<String,String,Person> hashOps;
 
     @Override
     public List<String> getPersonNameList() {
-        return hashOps.values("person");
+        List<String> nameList = new ArrayList<>();
+        hashOps.values("person").stream().map(Person::getName).forEach(nameList::add);
+        return nameList;
     }
 
     @Override
     public String getPersonNameById(int id) {
-        return hashOps.get("person",id+"");
+        Person p = hashOps.get("person",id+"");
+        return p==null?null:p.getName();
     }
 
     @Override

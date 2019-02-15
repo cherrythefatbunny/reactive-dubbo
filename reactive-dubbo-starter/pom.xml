@@ -7,7 +7,6 @@
         <artifactId>reactive-dubbo</artifactId>
         <version>1.0.0</version>
     </parent>
-    <groupId>com.github.cherrythefatbunny.boot</groupId>
     <artifactId>reactive-dubbo-starter</artifactId>
     <name>reactive-dubbo-starter</name>
     <description>spring boot starter of reactive support for dubbo based on reactor</description>
