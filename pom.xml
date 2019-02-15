@@ -34,6 +34,16 @@
         <developerConnection>scm:git:https://github.com/cherrythefatbunny/reactive-dubbo.git</developerConnection>
         <url>https://github.com/cherrythefatbunny/reactive-dubbo</url>
     </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
     <properties>
         <java.version>1.8</java.version>
     </properties>
