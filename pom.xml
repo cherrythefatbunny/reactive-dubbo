@@ -11,10 +11,6 @@
     <modules>
         <module>reactive-dubbo-starter</module>
         <module>reactive-dubbo-extensions</module>
-        <module>demo/facade</module>
-        <module>demo/redis-and-zookeeper</module>
-        <module>demo/provider</module>
-        <module>demo/consumer</module>
     </modules>
     <url>https://github.com/cherrythefatbunny/reactive-dubbo/</url>
     <developers>
@@ -66,6 +62,18 @@
         </dependencies>
     </dependencyManagement>
     <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>demo/facade</module>
+                <module>demo/redis-and-zookeeper</module>
+                <module>demo/provider</module>
+                <module>demo/consumer</module>
+            </modules>
+        </profile>
         <!-- GPG Signature on release -->
         <profile>
             <id>release</id>
