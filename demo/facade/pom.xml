@@ -6,7 +6,7 @@
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>facade</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>reactive dubbo::demo facade</name>
 
     <dependencies>

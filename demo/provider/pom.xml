@@ -5,7 +5,7 @@
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>provider</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>reactive dubbo::demo provider</name>
     <description>Demo provider project for reactive dubbo</description>
 
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.github.cherrythefatbunny.demo</groupId>
             <artifactId>facade</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- Spring Boot dependencies -->
         <dependency>
@@ -91,7 +91,7 @@
         <dependency>
             <groupId>com.github.cherrythefatbunny</groupId>
             <artifactId>reactive-dubbo-starter</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>

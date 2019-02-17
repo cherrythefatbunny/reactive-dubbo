@@ -4,13 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.cherrythefatbunny</groupId>
     <artifactId>reactive-dubbo</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>reactive-dubbo</name>
     <description>reactive support for dubbo based on reactor</description>
     <modules>
         <module>reactive-dubbo-starter</module>
         <module>reactive-dubbo-extensions</module>
+        <module>demo/facade</module>
+        <module>demo/redis-and-zookeeper</module>
+        <module>demo/provider</module>
+        <module>demo/consumer</module>
     </modules>
     <url>https://github.com/cherrythefatbunny/reactive-dubbo/</url>
     <developers>
@@ -96,6 +100,17 @@
                             <serverId>oss</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5.3</version>
+                        <configuration>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <useReleaseProfile>false</useReleaseProfile>
+                            <releaseProfiles>release</releaseProfiles>
+                            <goals>deploy</goals>
                         </configuration>
                     </plugin>
                 </plugins>

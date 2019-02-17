@@ -6,7 +6,7 @@
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>consumer</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>reactive dubbo::demo consumer</name>
 
     <properties>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.github.cherrythefatbunny.demo</groupId>
             <artifactId>facade</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- Spring Boot dependencies -->
         <dependency>
@@ -90,7 +90,7 @@
         <dependency>
             <groupId>com.github.cherrythefatbunny</groupId>
             <artifactId>reactive-dubbo-starter</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
