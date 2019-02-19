@@ -2,10 +2,7 @@ package com.github.cherrythefatbunny.reactive.dubbo.extensions.proxyfactory;
 
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
-import com.alibaba.dubbo.rpc.Invoker;
-import com.alibaba.dubbo.rpc.ProxyFactory;
-import com.alibaba.dubbo.rpc.RpcException;
-import com.alibaba.dubbo.rpc.RpcResult;
+import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.proxy.AbstractProxyFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -14,6 +11,8 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
+
+import static com.alibaba.dubbo.common.Constants.*;
 
 /**
  * @author cherrythefatbunny
@@ -35,7 +34,9 @@ public abstract class ReactiveProxyFactory extends AbstractProxyFactory {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Object ret = method.invoke(invoker, args);
-                if(method.getName().equals("invoke")) {
+                //extra process dealing with remote requests
+                if(method.getName().equals("invoke")&&
+                        !LOCAL_PROTOCOL.equals(((RpcInvocation) args[0]).getInvoker().getUrl().getProtocol())) {
                     RpcResult rpcResult = (RpcResult) ret;
                     Object val = rpcResult.getValue();
                     //retrieve real returned value and create new RpcResult

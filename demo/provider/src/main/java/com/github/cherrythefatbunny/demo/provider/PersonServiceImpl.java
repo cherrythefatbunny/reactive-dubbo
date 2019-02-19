@@ -1,8 +1,11 @@
 package com.github.cherrythefatbunny.demo.provider;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.cherrythefatbunny.demo.api.EchoService;
 import com.github.cherrythefatbunny.demo.api.Person;
 import com.github.cherrythefatbunny.demo.api.PersonService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,11 +15,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service(proxy = "reactivejavassist",timeout = 100000)
 public class PersonServiceImpl implements PersonService, InitializingBean {
     @Autowired
     @Qualifier("jsonTemplate")
     RedisTemplate<String, Person> ops;
+    @Reference
+    EchoService echoService;
     HashOperations<String,String,Person> hashOps;
 
     @Override
@@ -28,6 +34,10 @@ public class PersonServiceImpl implements PersonService, InitializingBean {
 
     @Override
     public String getPersonNameById(int id) {
+        //invoke reactive method locally
+        echoService.echoMono("PersonService#getPersonNameById")
+                .doOnError(throwable -> log.error("echoMono",throwable))
+                .subscribe(log::info);
         Person p = hashOps.get("person",id+"");
         return p==null?null:p.getName();
     }
