@@ -1,6 +1,6 @@
 package com.github.cherrythefatbunny.reactive.dubbo.boot;
 
-import com.github.cherrythefatbunny.reactive.dubbo.extensions.rpc.support.RpcUtilsHacker;
+import com.github.cherrythefatbunny.reactive.dubbo.extensions.rpc.support.RpcUtilsCracker;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
@@ -11,6 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ReactiveApplicationContextInitializer implements ApplicationContextInitializer {
     @Override
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-        RpcUtilsHacker.hack();
+        RpcUtilsCracker.hack();
     }
 }

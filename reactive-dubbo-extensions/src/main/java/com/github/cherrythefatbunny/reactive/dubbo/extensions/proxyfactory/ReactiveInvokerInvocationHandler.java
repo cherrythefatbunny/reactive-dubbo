@@ -16,7 +16,7 @@ import java.util.List;
  * @author cherry
  */
 public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
-    private static final Logger logger = LoggerFactory.getLogger(ReactiveInvokerInvocationHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReactiveInvokerInvocationHandler.class);
     private final Invoker<?> invoker;
     public ReactiveInvokerInvocationHandler(Invoker<?> handler) {
         super(handler);
@@ -33,7 +33,7 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                     try {
                         return invoker.invoke(invocation).recreate();
                     } catch (Throwable throwable) {
-                        logger.error("mono call invoker error:"+throwable);
+                        LOGGER.error("mono call invoker error:"+throwable);
                         return null;
                     }
                 });
@@ -43,7 +43,7 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                     try {
                         return (List)invoker.invoke(invocation).recreate();
                     } catch (Throwable throwable) {
-                        logger.error("flux call invoker error:"+throwable);
+                        LOGGER.error("flux call invoker error:"+throwable);
                         return null;
                     }
                 }).block());

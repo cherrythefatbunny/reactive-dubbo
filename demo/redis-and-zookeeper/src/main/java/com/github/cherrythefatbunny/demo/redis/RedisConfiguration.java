@@ -1,6 +1,8 @@
 package com.github.cherrythefatbunny.demo.redis;
 
 import com.github.cherrythefatbunny.demo.api.Person;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
@@ -10,9 +12,31 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import redis.embedded.RedisServer;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.io.IOException;
 
 @Configuration
+@ConditionalOnProperty(value = "infrastructure.enable",havingValue = "true")
 public class RedisConfiguration {
+    @Value("${embedded.redis.port}")
+    private int redisPort;
+
+    private RedisServer redisServer;
+
+    @PostConstruct
+    public void startRedis() throws IOException {
+        redisServer = new RedisServer(redisPort);
+        redisServer.start();
+    }
+
+    @PreDestroy
+    public void stopRedis() {
+        redisServer.stop();
+    }
+
     @Bean
     public RedisTemplate<String, Person> jsonTemplate(
             RedisConnectionFactory factory) {

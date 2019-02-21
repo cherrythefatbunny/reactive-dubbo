@@ -22,6 +22,7 @@ public class InfrastructureApplication implements CommandLineRunner, Environment
     @Qualifier("jsonReactiveTemplate")
     ReactiveRedisOperations<String, Person> ops;
     private Environment environment;
+    RedisServer redisServer = null;
 
     public static void main(String[] args) {
         SpringApplication.run(InfrastructureApplication.class, args);
@@ -29,17 +30,6 @@ public class InfrastructureApplication implements CommandLineRunner, Environment
 
     @Override
     public void run(String... args) throws Exception {
-        if(!environment.getProperty("infrastructure.enable",boolean.class,false))return;
-        int port = environment.getProperty("embedded.zookeeper.port", int.class);
-        new EmbeddedZooKeeper(port, false).start();
-
-        RedisServer redisServer = null;
-        try {
-            redisServer = new RedisServer(environment.getProperty("embedded.redis.port", int.class));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        redisServer.start();
         //init redis data
         Person p1 = new Person();
         p1.setId(101);

@@ -22,9 +22,9 @@ public abstract class ReactiveProxyFactory extends AbstractProxyFactory {
             .getExtensionLoader(ProxyFactory.class).getExtension(getExtensionName());
 
     /**
-     * return the name of delegating ProxyFactory
+     * @return the name of delegating ProxyFactory
      * */
-    protected abstract String getExtensionName();
+    abstract String getExtensionName();
 
     @Override
     public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) throws RpcException {

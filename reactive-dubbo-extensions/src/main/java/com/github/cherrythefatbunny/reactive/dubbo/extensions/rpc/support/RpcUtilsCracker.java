@@ -16,25 +16,26 @@ import java.util.List;
  * hack RpcUtils.getReturnTypes,supporting mono and flux
  * @author cherry
  */
-public class RpcUtilsHacker {
-    private static final Logger logger = LoggerFactory.getLogger(RpcUtilsHacker.class);
+public class RpcUtilsCracker {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RpcUtilsCracker.class);
     private static final String RPCUTILS_CLASS_NAME = "com.alibaba.dubbo.rpc.support.RpcUtils";
     public static void hack() {
         try {
             ClassPool classPool = ClassPool.getDefault();
+            classPool.appendClassPath(new LoaderClassPath(RpcUtilsCracker.class.getClassLoader()));
             CtClass ctClass = classPool.get(RPCUTILS_CLASS_NAME);
             CtMethod ctMethod = ctClass.getDeclaredMethod("getReturnTypes");
             //rename method `getReturnTypes` to `getReturnTypes0`
             ctClass.removeMethod(ctMethod);
             ctMethod.setName("getReturnTypes0");
             ctClass.addMethod(ctMethod);
-            //add new method `getReturnTypes` according to RpcUtilsHacker.getReturnTypes
-            CtClass ctClass1 = classPool.get(RpcUtilsHacker.class.getName());
+            //add new method `getReturnTypes` according to RpcUtilsCracker.getReturnTypes
+            CtClass ctClass1 = classPool.get(RpcUtilsCracker.class.getName());
             ctMethod = new CtMethod(ctClass1.getDeclaredMethod("getReturnTypes"),ctClass,null);
             ctClass.addMethod(ctMethod);
             ctClass.toClass();
         } catch (NotFoundException|CannotCompileException e) {
-            logger.warn("hack RpcUtils failed",e);
+            LOGGER.error("crack RpcUtils failed",e);
         }
     }
     public static Type[] getReturnTypes0(Invocation invocation) {
@@ -43,6 +44,8 @@ public class RpcUtilsHacker {
 
     /**
      * template method of RpcUtils.getReturnTypes
+     * @param invocation the invocation instance of the interface
+     * @return return types of the invokee
      * */
     public static Type[] getReturnTypes(Invocation invocation) {
         Type[] types = getReturnTypes0(invocation);
