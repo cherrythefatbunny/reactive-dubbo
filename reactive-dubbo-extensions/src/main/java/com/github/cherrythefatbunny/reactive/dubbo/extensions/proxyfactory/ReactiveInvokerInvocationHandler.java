@@ -5,6 +5,7 @@ import com.alibaba.dubbo.common.logger.LoggerFactory;
 import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.RpcInvocation;
 import com.alibaba.dubbo.rpc.proxy.InvokerInvocationHandler;
+import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -47,6 +48,10 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                         return null;
                     }
                 }).block());
+            } else if(method.getReturnType().equals(Publisher.class)) {
+                //TODO other publishers support
+                throw new IllegalArgumentException(
+                        String.format("%s not supported now",method.getReturnType().getSimpleName()));
             }
         }
         return super.invoke(proxy, method, args);
