@@ -17,7 +17,7 @@ import java.util.List;
 
 //given specified ProxyFactory to deal with mono and flux
 @Slf4j
-@Service(proxy = "reactivejavassist",timeout = 100000)
+@Service(proxy = "reactivejavassist")
 public class ReactivePersonServiceImpl implements ReactivePersonService, InitializingBean {
     @Autowired
     @Qualifier("jsonReactiveTemplate")

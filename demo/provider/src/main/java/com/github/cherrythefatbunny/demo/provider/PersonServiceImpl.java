@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@Service(proxy = "reactivejavassist",timeout = 100000)
+@Service(proxy = "reactivejavassist")
 public class PersonServiceImpl implements PersonService, InitializingBean {
     @Autowired
     @Qualifier("jsonTemplate")

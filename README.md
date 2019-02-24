@@ -27,3 +27,23 @@ Reactive support for [Dubbo](http://dubbo.apache.org) based on [REACTOR](https:/
 # cd ../consumer
 # nohup mvn spring-boot:run &
 ```
+
+## Getting involved
+
+### Maven dependency
+Both provider and consumer should add reactive-dubbo-starter dependency
+```xml
+<dependency>
+    <groupId>com.github.cherrythefatbunny</groupId>
+    <artifactId>reactive-dubbo-starter</artifactId>
+    <version>1.0.2-SNAPSHOT</version>
+</dependency>
+```
+### Service definition
+For provider side,you should define reactive services by specifying a reactive proxy factory(e.g.,reactivejavassist,reactivejdk. )
+```java
+@Service(proxy = "reactivejavassist")
+public class ReactiveServiceImpl implements ReactiveService {
+    
+}
+```
