@@ -34,8 +34,10 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                     try {
                         return invoker.invoke(invocation).recreate();
                     } catch (Throwable throwable) {
-                        LOGGER.error("mono call invoker error:"+throwable);
-                        return null;
+                        if(LOGGER.isWarnEnabled()) {
+                            LOGGER.warn("mono call invoker error", throwable);
+                        }
+                        throw new Exception(throwable);
                     }
                 });
             } else if(method.getReturnType().equals(Flux.class)) {
@@ -44,8 +46,10 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                     try {
                         return (List)invoker.invoke(invocation).recreate();
                     } catch (Throwable throwable) {
-                        LOGGER.error("flux call invoker error:"+throwable);
-                        return null;
+                        if(LOGGER.isWarnEnabled()) {
+                            LOGGER.warn("flux call invoker error", throwable);
+                        }
+                        throw new Exception(throwable);
                     }
                 }).block());
             } else if(method.getReturnType().equals(Publisher.class)) {
