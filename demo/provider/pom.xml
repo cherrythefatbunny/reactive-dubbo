@@ -4,7 +4,7 @@
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>provider</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <name>reactive dubbo::demo provider</name>
     <description>Demo provider project for reactive dubbo</description>
 

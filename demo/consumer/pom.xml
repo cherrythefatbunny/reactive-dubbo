@@ -4,7 +4,7 @@
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>consumer</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
     <name>reactive dubbo::demo consumer</name>
 
     <properties>
