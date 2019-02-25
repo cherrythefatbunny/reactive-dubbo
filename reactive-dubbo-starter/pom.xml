@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.github.cherrythefatbunny</groupId>
         <artifactId>reactive-dubbo</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
     <artifactId>reactive-dubbo-starter</artifactId>
     <name>reactive-dubbo-starter</name>

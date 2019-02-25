@@ -4,7 +4,7 @@
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
     <artifactId>redis-and-zookeeper</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <name>reactive dubbo::demo infrastructure</name>
     <properties>
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
