@@ -13,13 +13,13 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 /**
- * hack RpcUtils.getReturnTypes,supporting mono and flux
+ * crack RpcUtils.getReturnTypes,supporting mono and flux
  * @author cherry
  */
 public class RpcUtilsCracker {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcUtilsCracker.class);
     private static final String RPCUTILS_CLASS_NAME = "com.alibaba.dubbo.rpc.support.RpcUtils";
-    public static void hack() {
+    public static void crack() {
         try {
             ClassPool classPool = ClassPool.getDefault();
             classPool.appendClassPath(new LoaderClassPath(RpcUtilsCracker.class.getClassLoader()));

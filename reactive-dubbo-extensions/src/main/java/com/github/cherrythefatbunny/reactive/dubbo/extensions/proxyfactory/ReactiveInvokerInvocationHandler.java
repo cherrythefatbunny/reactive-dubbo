@@ -26,9 +26,11 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        if(method.getReturnType().equals(Mono.class)||method.getReturnType().equals(Flux.class)) {
+        //if the invocation returns a publisher,make a publisher wrapping the real invocation
+        Class returnType = method.getReturnType();
+        if(Publisher.class.isAssignableFrom(returnType)) {
             RpcInvocation invocation = new RpcInvocation(method, args);
-            if(method.getReturnType().equals(Mono.class)) {
+            if(Mono.class.isAssignableFrom(returnType)) {
                 invocation.setAttachment("Publisher","mono");
                 return Mono.fromCallable(() -> {
                     try {
@@ -40,7 +42,7 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                         throw new Exception(throwable);
                     }
                 });
-            } else if(method.getReturnType().equals(Flux.class)) {
+            } else if(Flux.class.isAssignableFrom(returnType)) {
                 invocation.setAttachment("Publisher","flux");
                 return Flux.fromIterable(Mono.fromCallable(() -> {
                     try {
@@ -52,7 +54,7 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                         throw new Exception(throwable);
                     }
                 }).block());
-            } else if(method.getReturnType().equals(Publisher.class)) {
+            } else {
                 //TODO other publishers support
                 throw new IllegalArgumentException(
                         String.format("%s not supported now",method.getReturnType().getSimpleName()));

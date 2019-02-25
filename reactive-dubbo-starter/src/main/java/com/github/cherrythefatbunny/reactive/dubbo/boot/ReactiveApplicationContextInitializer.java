@@ -11,6 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ReactiveApplicationContextInitializer implements ApplicationContextInitializer {
     @Override
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-        RpcUtilsCracker.hack();
+        RpcUtilsCracker.crack();
     }
 }
