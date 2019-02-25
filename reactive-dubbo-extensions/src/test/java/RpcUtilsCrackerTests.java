@@ -17,7 +17,7 @@ public class RpcUtilsCrackerTests {
     static DubboInvoker invoker;
     @BeforeClass
     public static void init() {
-        RpcUtilsCracker.hack();
+        RpcUtilsCracker.crack();
         invoker = new DubboInvoker(RpcUtilsCrackerTests.class
                 ,new URL("dubbo","127.0.0.1",20880,DemoProvider.class.getName())
                 ,null);

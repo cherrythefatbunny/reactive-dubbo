@@ -21,7 +21,7 @@ public class PersonServiceImpl implements PersonService, InitializingBean {
     @Autowired
     @Qualifier("jsonTemplate")
     RedisTemplate<String, Person> ops;
-    @Reference
+    @Reference(stub = "com.github.cherrythefatbunny.demo.provider.stub.EchoServiceStub")
     EchoService echoService;
     HashOperations<String,String,Person> hashOps;
 
@@ -35,7 +35,7 @@ public class PersonServiceImpl implements PersonService, InitializingBean {
     @Override
     public String getPersonNameById(int id) {
         //invoke reactive method locally
-        echoService.echoMono("PersonService#getPersonNameById")
+        echoService.echoMono("fuck PersonService#getPersonNameById")
                 .doOnError(throwable -> log.error("echoMono",throwable))
                 .subscribe(log::info);
         Person p = hashOps.get("person",id+"");
