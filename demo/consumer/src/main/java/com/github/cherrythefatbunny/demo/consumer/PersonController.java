@@ -23,8 +23,7 @@ public class PersonController {
     }
     @GetMapping("by")
     public String getPersonNameById(@RequestParam int id) {
-        String ret = personService.getPersonNameById(id);
-        return ret;
+        return personService.getPersonNameById(id);
     }
     @GetMapping("by1")
     public Mono<String> getPersonNameById1(@RequestParam int id) {
