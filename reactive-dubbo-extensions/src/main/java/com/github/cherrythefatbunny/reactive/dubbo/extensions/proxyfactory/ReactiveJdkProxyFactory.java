@@ -1,6 +1,7 @@
 package com.github.cherrythefatbunny.reactive.dubbo.extensions.proxyfactory;
 
 import com.alibaba.dubbo.rpc.Invoker;
+import com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory;
 
 import java.lang.reflect.Proxy;
 
@@ -8,12 +9,8 @@ import java.lang.reflect.Proxy;
  * reactive implementation of JdkProxyFactory
  * @author cherry
  */
-public class ReactiveJdkProxyFactory extends ReactiveProxyFactory {
-
-    @Override
-    protected String getExtensionName() {
-        return "jdk";
-    }
+public class ReactiveJdkProxyFactory extends JavassistProxyFactory {
+    public static final String NAME = "reactivejdk";
 
     @Override
     public <T> T getProxy(Invoker<T> invoker, Class<?>[] interfaces) {

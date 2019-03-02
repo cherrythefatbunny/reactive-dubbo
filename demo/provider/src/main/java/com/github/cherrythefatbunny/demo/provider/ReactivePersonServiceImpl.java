@@ -3,6 +3,7 @@ package com.github.cherrythefatbunny.demo.provider;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.cherrythefatbunny.demo.api.Person;
 import com.github.cherrythefatbunny.demo.api.ReactivePersonService;
+import com.github.cherrythefatbunny.reactive.dubbo.extensions.proxyfactory.ReactiveJavassistProxyFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +13,9 @@ import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.ArrayList;
-import java.util.List;
-
-//given specified ProxyFactory to deal with mono and flux
+//given reactive ProxyFactory to deal with mono and flux
 @Slf4j
-@Service(proxy = "reactivejavassist")
+@Service(proxy = ReactiveJavassistProxyFactory.NAME)
 public class ReactivePersonServiceImpl implements ReactivePersonService, InitializingBean {
     @Autowired
     @Qualifier("jsonReactiveTemplate")

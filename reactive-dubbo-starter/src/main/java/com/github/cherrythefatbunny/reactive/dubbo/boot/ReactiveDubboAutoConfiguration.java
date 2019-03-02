@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author cherrythefatbunny
  */
-@ConditionalOnProperty(prefix = "dubbo",value = "reactive",havingValue = "enable")
+@ConditionalOnProperty(prefix = "dubbo",value = "reactive",havingValue = "enable",matchIfMissing = true)
 @Configuration
 public class ReactiveDubboAutoConfiguration {
     @Bean
