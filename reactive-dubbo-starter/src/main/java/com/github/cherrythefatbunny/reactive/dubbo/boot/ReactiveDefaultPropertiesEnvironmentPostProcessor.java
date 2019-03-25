@@ -1,6 +1,6 @@
 package com.github.cherrythefatbunny.reactive.dubbo.boot;
 
-import com.alibaba.dubbo.remoting.exchange.support.header.ReactiveHeaderExchangeHandler;
+import com.github.cherrythefatbunny.reactive.dubbo.extensions.proxyfactory.ReactiveJavassistProxyFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.Ordered;
@@ -21,13 +21,13 @@ public class ReactiveDefaultPropertiesEnvironmentPostProcessor implements Enviro
      */
     private static final String PROPERTY_SOURCE_NAME = "defaultProperties";
 
-    private static final String DUBBO_PROVIDER_EXCHANGER_PROPERTY = "dubbo.provider.exchanger";
+    private static final String DUBBO_PROVIDER_PROXY_PROPERTY = "dubbo.provider.proxy";
 
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         MutablePropertySources propertySources = environment.getPropertySources();
         Map<String, Object> map = new HashMap<>();
-        map.put(DUBBO_PROVIDER_EXCHANGER_PROPERTY, ReactiveHeaderExchangeHandler.NAME);
+        map.put(DUBBO_PROVIDER_PROXY_PROPERTY, ReactiveJavassistProxyFactory.NAME);
         addOrReplace(propertySources,map);
     }
     /**

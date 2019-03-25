@@ -3,10 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.cherrythefatbunny.demo</groupId>
-    <artifactId>provider</artifactId>
+    <artifactId>consumer-mvc</artifactId>
     <version>2.0.0-SNAPSHOT</version>
-    <name>reactive dubbo::demo provider</name>
-    <description>Demo provider project for reactive dubbo</description>
+    <name>reactive dubbo::demo consumer with springmvc</name>
 
     <properties>
         <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
@@ -67,11 +66,6 @@
             <artifactId>facade</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- Spring Boot dependencies -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
         <!-- Dubbo Spring Boot Starter -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
@@ -83,13 +77,12 @@
             <artifactId>dubbo</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.asynchttpclient</groupId>
-            <artifactId>async-http-client</artifactId>
-            <version>2.8.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- Zookeeper -->
         <dependency>
@@ -106,21 +99,11 @@
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
         <!--reactive dubbo dependency-->
         <dependency>
             <groupId>com.github.cherrythefatbunny</groupId>
             <artifactId>reactive-dubbo-starter</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
-            <version>3.2.6.RELEASE</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -160,5 +143,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>

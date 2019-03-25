@@ -38,18 +38,23 @@ public class RedisConfiguration {
     }
 
     @Bean
+    public RedisTemplate<String, String> stringTemplate(
+            RedisConnectionFactory factory) {
+        RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(factory);
+        redisTemplate.setKeySerializer(RedisSerializer.string());
+        redisTemplate.setValueSerializer(RedisSerializer.string());
+        redisTemplate.setHashKeySerializer(RedisSerializer.string());
+        redisTemplate.setHashValueSerializer(RedisSerializer.string());
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
+    }
+
+        @Bean
     public RedisTemplate<String, Person> jsonTemplate(
             RedisConnectionFactory factory) {
         Jackson2JsonRedisSerializer<Person> valueSerializer =
                 new Jackson2JsonRedisSerializer<>(Person.class);
-        RedisSerializationContext.RedisSerializationContextBuilder<String, Person> builder =
-                RedisSerializationContext.newSerializationContext();
-        RedisSerializationContext<String, Person> context = builder
-                .key(RedisSerializer.string())
-                .value(valueSerializer)
-                .hashKey(RedisSerializer.string())
-                .hashValue(valueSerializer)
-                .build();
         RedisTemplate<String,Person> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(factory);
         redisTemplate.setKeySerializer(RedisSerializer.string());
@@ -71,6 +76,20 @@ public class RedisConfiguration {
                 .value(valueSerializer)
                 .hashKey(RedisSerializer.string())
                 .hashValue(valueSerializer)
+                .build();
+        return new ReactiveRedisTemplate<>(factory, context);
+    }
+
+    @Bean
+    public ReactiveRedisTemplate<String, String> stringReactiveTemplate(
+            ReactiveRedisConnectionFactory factory) {
+        RedisSerializationContext.RedisSerializationContextBuilder<String, String> builder =
+                RedisSerializationContext.newSerializationContext();
+        RedisSerializationContext<String, String> context = builder
+                .key(RedisSerializer.string())
+                .value(RedisSerializer.string())
+                .hashKey(RedisSerializer.string())
+                .hashValue(RedisSerializer.string())
                 .build();
         return new ReactiveRedisTemplate<>(factory, context);
     }

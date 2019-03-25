@@ -69,8 +69,10 @@
             <modules>
                 <module>demo/facade</module>
                 <module>demo/redis-and-zookeeper</module>
+                <module>demo/delay-service</module>
                 <module>demo/provider</module>
-                <module>demo/consumer</module>
+                <module>demo/consumer-mvc</module>
+                <module>demo/consumer-webflux</module>
             </modules>
         </profile>
         <!-- GPG Signature on release -->

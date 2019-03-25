@@ -21,13 +21,37 @@ public class EchoServiceStub implements EchoService {
         }
     }
 
+    /**
+     * exclamatory form
+     * */
+    public static String exclamatory(String word) {
+        if (!word.endsWith("!!!")) {
+            return word+"!!!";
+        } else {
+            return word;
+        }
+    }
+
     @Override
     public String echo(String content) {
-        return filter(echoService.echo(content));
+        return echoService.echo(content);
     }
 
     @Override
     public Mono<String> echoMono(String content) {
-        return echoService.echoMono(content).map(EchoServiceStub::filter);
+        return echoService.echoMono(content);
+    }
+
+    @Override
+    public String curse(String name) {
+        return exclamatory(filter(echoService.curse(name)));
+    }
+
+    @Override
+    public Mono<String> curseMono(String name) {
+        return echoService
+                .curseMono(name)
+                .map(EchoServiceStub::filter)
+                .map(EchoServiceStub::exclamatory);
     }
 }

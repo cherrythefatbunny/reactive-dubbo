@@ -1,9 +1,9 @@
 package com.github.cherrythefatbunny.reactive.dubbo.extensions.rpc.support;
 
-import com.alibaba.dubbo.common.logger.Logger;
-import com.alibaba.dubbo.common.logger.LoggerFactory;
-import com.alibaba.dubbo.rpc.Invocation;
 import javassist.*;
+import org.apache.dubbo.common.logger.Logger;
+import org.apache.dubbo.common.logger.LoggerFactory;
+import org.apache.dubbo.rpc.Invocation;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class RpcUtilsCracker {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcUtilsCracker.class);
-    private static final String RPCUTILS_CLASS_NAME = "com.alibaba.dubbo.rpc.support.RpcUtils";
+    private static final String RPCUTILS_CLASS_NAME = "org.apache.dubbo.rpc.support.RpcUtils";
     public static void crack() {
         try {
             ClassPool classPool = ClassPool.getDefault();
