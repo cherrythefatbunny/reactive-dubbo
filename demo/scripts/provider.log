@@ -1,0 +1,119 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.cherrythefatbunny.demo:provider:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 139, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building reactive dubbo::demo provider 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ provider ---
+[INFO] Deleting /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../provider/target
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) > test-compile @ provider >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ provider ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ provider ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../provider/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ provider ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../provider/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ provider ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) < test-compile @ provider <<<
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) @ provider ---
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/cherry/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/cherry/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+log4j:WARN No appenders could be found for logger (org.apache.dubbo.common.logger.LoggerFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+2019-03-26 09:37:42.668  INFO 10382 --- [           main] d.s.b.c.e.WelcomeLogoApplicationListener : 
+
+ :: Dubbo Spring Boot (v2.7.0) : https://github.com/apache/incubator-dubbo-spring-boot-project
+ :: Dubbo (v2.7.0) : https://github.com/apache/incubator-dubbo
+ :: Discuss group : dev@dubbo.apache.org
+
+2019-03-26 09:37:42.676  INFO 10382 --- [           main] e.OverrideDubboConfigApplicationListener : Dubbo Config was overridden by externalized configuration {dubbo.application.name=reactive-dubbo-provider-demo, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.protocol.name=dubbo, dubbo.protocol.port=20880, dubbo.provider.proxy=reactivejavassist, dubbo.registry.address=zookeeper://127.0.0.1:2181, dubbo.scan.base-packages=com.github.cherrythefatbunny.demo.provider}
+                     _   _                 _       _     _
+                    | | (_)               | |     | |   | |
+ _ __ ___  __ _  ___| |_ ___   _____    __| |_   _| |__ | |__   ___
+| '__/ _ \/ _` |/ __| __| \ \ / / _ \  / _` | | | | '_ \| '_ \ / _ \
+| | |  __/ (_| | (__| |_| |\ V /  __/ | (_| | |_| | |_) | |_) | (_) |
+|_|  \___|\__,_|\___|\__|_| \_/ \___|  \__,_|\__,_|_.__/|_.__/ \___/
+
+
+2019-03-26 09:37:42.923  INFO 10382 --- [           main] c.g.c.demo.provider.ProviderApplication  : Starting ProviderApplication on 192.168.41.152 with PID 10382 (/Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../provider/target/classes started by cherry in /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts)
+2019-03-26 09:37:42.924  INFO 10382 --- [           main] c.g.c.demo.provider.ProviderApplication  : No active profile set, falling back to default profiles: default
+2019-03-26 09:37:43.734  INFO 10382 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-26 09:37:43.740  INFO 10382 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-26 09:37:43.780  INFO 10382 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 repository interfaces.
+2019-03-26 09:37:43.861  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, class : org.apache.dubbo.config.ApplicationConfig] has been registered.
+2019-03-26 09:37:43.862  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ApplicationConfig#0] has been registered.
+2019-03-26 09:37:43.862  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.RegistryConfig#0, class : org.apache.dubbo.config.RegistryConfig] has been registered.
+2019-03-26 09:37:43.863  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.RegistryConfig#0] has been registered.
+2019-03-26 09:37:43.863  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, class : org.apache.dubbo.config.ProtocolConfig] has been registered.
+2019-03-26 09:37:43.863  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ProtocolConfig#0] has been registered.
+2019-03-26 09:37:43.863  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.ProviderConfig#0, class : org.apache.dubbo.config.ProviderConfig] has been registered.
+2019-03-26 09:37:43.864  INFO 10382 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ProviderConfig#0] has been registered.
+2019-03-26 09:37:43.923  INFO 10382 --- [           main] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboRelaxedBinding2AutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-03-26 09:37:43.923  INFO 10382 --- [           main] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-03-26 09:37:44.115  INFO 10382 --- [           main] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ReactiveDubboAutoConfiguration.modifyProxyFactoryProperty is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2019-03-26 09:37:44.183  INFO 10382 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:37:44.185  INFO 10382 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:37:44.187  INFO 10382 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:37:44.188  INFO 10382 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:37:45.363  INFO 10382 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.ApplicationConfig#0] have been binding by prefix of configuration properties : dubbo.application
+2019-03-26 09:37:45.378  INFO 10382 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.RegistryConfig#0] have been binding by prefix of configuration properties : dubbo.registry
+2019-03-26 09:37:45.396  INFO 10382 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.ProtocolConfig#0] have been binding by prefix of configuration properties : dubbo.protocol
+2019-03-26 09:37:45.451  INFO 10382 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.ProviderConfig#0] have been binding by prefix of configuration properties : dubbo.provider
+2019-03-26 09:37:46.042  INFO 10382 --- [           main] o.a.d.c.s.b.f.a.ReferenceBeanBuilder     : The bean[type:ReferenceBean] has been built.
+2019-03-26 09:37:46.307  INFO 10382 --- [           main] org.apache.curator.utils.Compatibility   : Running in ZooKeeper 3.4.x compatibility mode
+2019-03-26 09:37:46.373  INFO 10382 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Starting
+2019-03-26 09:37:49.410  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 00:39 GMT
+2019-03-26 09:37:49.410  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:host.name=192.168.41.152
+2019-03-26 09:37:49.410  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.version=1.8.0_121
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.vendor=Oracle Corporation
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.class.path=/usr/local/Cellar/maven/3.3.9/libexec/boot/plexus-classworlds-2.5.2.jar
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.library.path=/Users/cherry/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.io.tmpdir=/var/folders/xd/y7ryhgkn3dxb19jkrx188c4c0000gn/T/
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.compiler=<NA>
+2019-03-26 09:37:49.411  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:os.name=Mac OS X
+2019-03-26 09:37:49.412  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:os.arch=x86_64
+2019-03-26 09:37:49.412  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:os.version=10.14.4
+2019-03-26 09:37:49.412  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:user.name=cherry
+2019-03-26 09:37:49.412  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:user.home=/Users/cherry
+2019-03-26 09:37:49.412  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:user.dir=/Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts
+2019-03-26 09:37:49.413  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@a8944ce
+2019-03-26 09:37:49.467  INFO 10382 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2019-03-26 09:37:49.475  INFO 10382 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Default schema
+2019-03-26 09:37:49.516  INFO 10382 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to localhost/127.0.0.1:2181, initiating session
+2019-03-26 09:37:49.556  INFO 10382 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x169b7a4e4b10000, negotiated timeout = 60000
+2019-03-26 09:37:49.569  INFO 10382 --- [ain-EventThread] o.a.c.f.state.ConnectionStateManager     : State change: CONNECTED
+2019-03-26 09:37:49.977  INFO 10382 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Starting
+2019-03-26 09:37:49.977  INFO 10382 --- [           main] org.apache.zookeeper.ZooKeeper           : Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@4875f699
+2019-03-26 09:37:49.978  INFO 10382 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Default schema
+2019-03-26 09:37:49.979  INFO 10382 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2019-03-26 09:37:49.979  INFO 10382 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to localhost/127.0.0.1:2181, initiating session
+2019-03-26 09:37:49.984  INFO 10382 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x169b7a4e4b10001, negotiated timeout = 60000
+2019-03-26 09:37:49.984  INFO 10382 --- [ain-EventThread] o.a.c.f.state.ConnectionStateManager     : State change: CONNECTED
+2019-03-26 09:37:50.151  INFO 10382 --- [           main] c.g.c.demo.provider.ProviderApplication  : Started ProviderApplication in 7.86 seconds (JVM running for 13.846)
+2019-03-26 09:37:50.156  INFO 10382 --- [pool-1-thread-1] .b.c.e.AwaitingNonWebApplicationListener :  [Dubbo] Current Spring Boot Application is await...
+2019-03-26 09:38:39.455  INFO 10382 --- [:20880-thread-3] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2019-03-26 09:38:39.487  INFO 10382 --- [:20880-thread-3] io.lettuce.core.KqueueProvider           : Starting with kqueue library

@@ -1,0 +1,2 @@
+reactivejdk=com.github.cherrythefatbunny.reactive.dubbo.extensions.proxyfactory.ReactiveJdkProxyFactory
+reactivejavassist=com.github.cherrythefatbunny.reactive.dubbo.extensions.proxyfactory.ReactiveJavassistProxyFactory

@@ -1,0 +1,140 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.cherrythefatbunny.demo:consumer-mvc:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 122, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building reactive dubbo::demo consumer with springmvc 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ consumer-mvc ---
+[INFO] Deleting /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../consumer-mvc/target
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) > test-compile @ consumer-mvc >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ consumer-mvc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ consumer-mvc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../consumer-mvc/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ consumer-mvc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../consumer-mvc/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ consumer-mvc ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) < test-compile @ consumer-mvc <<<
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) @ consumer-mvc ---
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/cherry/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/cherry/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+log4j:WARN No appenders could be found for logger (org.apache.dubbo.common.logger.LoggerFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+2019-03-26 09:38:00.540  INFO 10449 --- [           main] d.s.b.c.e.WelcomeLogoApplicationListener : 
+
+ :: Dubbo Spring Boot (v2.7.0) : https://github.com/apache/incubator-dubbo-spring-boot-project
+ :: Dubbo (v2.7.0) : https://github.com/apache/incubator-dubbo
+ :: Discuss group : dev@dubbo.apache.org
+
+2019-03-26 09:38:00.551  INFO 10449 --- [           main] e.OverrideDubboConfigApplicationListener : Dubbo Config was overridden by externalized configuration {dubbo.application.logger=slf4j, dubbo.application.name=reactive-dubbo-consumermvc-demo, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.protocol.name=dubbo, dubbo.protocol.port=20882, dubbo.provider.proxy=reactivejavassist, dubbo.registry.address=zookeeper://127.0.0.1:2181, dubbo.scan.base-packages=com.github.cherrythefatbunny.demo.consumermvc}
+                     _   _                 _       _     _
+                    | | (_)               | |     | |   | |
+ _ __ ___  __ _  ___| |_ ___   _____    __| |_   _| |__ | |__   ___
+| '__/ _ \/ _` |/ __| __| \ \ / / _ \  / _` | | | | '_ \| '_ \ / _ \
+| | |  __/ (_| | (__| |_| |\ V /  __/ | (_| | |_| | |_) | |_) | (_) |
+|_|  \___|\__,_|\___|\__|_| \_/ \___|  \__,_|\__,_|_.__/|_.__/ \___/
+
+
+2019-03-26 09:38:01.093  INFO 10449 --- [           main] c.g.c.d.c.ConsumerMvcApplication         : Starting ConsumerMvcApplication on 192.168.41.152 with PID 10449 (/Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../consumer-mvc/target/classes started by cherry in /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts)
+2019-03-26 09:38:01.096  INFO 10449 --- [           main] c.g.c.d.c.ConsumerMvcApplication         : No active profile set, falling back to default profiles: default
+2019-03-26 09:38:02.212  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, class : org.apache.dubbo.config.ApplicationConfig] has been registered.
+2019-03-26 09:38:02.213  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ApplicationConfig#0] has been registered.
+2019-03-26 09:38:02.214  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.RegistryConfig#0, class : org.apache.dubbo.config.RegistryConfig] has been registered.
+2019-03-26 09:38:02.214  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.RegistryConfig#0] has been registered.
+2019-03-26 09:38:02.214  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, class : org.apache.dubbo.config.ProtocolConfig] has been registered.
+2019-03-26 09:38:02.215  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ProtocolConfig#0] has been registered.
+2019-03-26 09:38:02.215  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The dubbo config bean definition [name : org.apache.dubbo.config.ProviderConfig#0, class : org.apache.dubbo.config.ProviderConfig] has been registered.
+2019-03-26 09:38:02.215  INFO 10449 --- [           main] .a.d.c.s.c.a.DubboConfigBindingRegistrar : The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ProviderConfig#0] has been registered.
+2019-03-26 09:38:02.300  INFO 10449 --- [           main] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboRelaxedBinding2AutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-03-26 09:38:02.300  INFO 10449 --- [           main] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2019-03-26 09:38:02.569  INFO 10449 --- [           main] o.s.c.a.ConfigurationClassEnhancer       : @Bean method ReactiveDubboAutoConfiguration.modifyProxyFactoryProperty is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2019-03-26 09:38:02.711  INFO 10449 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:38:02.714  INFO 10449 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:38:02.715  INFO 10449 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:38:02.717  INFO 10449 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-26 09:38:03.370  INFO 10449 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2019-03-26 09:38:03.443  INFO 10449 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-03-26 09:38:03.444  INFO 10449 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-26 09:38:03.468  INFO 10449 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/cherry/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2019-03-26 09:38:03.640  INFO 10449 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-03-26 09:38:03.641  INFO 10449 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2477 ms
+2019-03-26 09:38:04.013  INFO 10449 --- [           main] o.a.dubbo.common.logger.LoggerFactory    : using logger: org.apache.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2019-03-26 09:38:04.018  INFO 10449 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.ApplicationConfig#0] have been binding by prefix of configuration properties : dubbo.application
+2019-03-26 09:38:04.048  INFO 10449 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.RegistryConfig#0] have been binding by prefix of configuration properties : dubbo.registry
+2019-03-26 09:38:04.055  INFO 10449 --- [           main] o.a.d.c.s.b.f.a.ReferenceBeanBuilder     : The bean[type:ReferenceBean] has been built.
+2019-03-26 09:38:04.082  INFO 10449 --- [           main] o.a.dubbo.common.logger.LoggerFactory    : using logger: org.apache.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2019-03-26 09:38:04.132  WARN 10449 --- [           main] org.apache.dubbo.config.AbstractConfig   :  [DUBBO] There's no valid metadata config found, if you are using the simplified mode of registry url, please make sure you have a metadata address configured properly., dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.259  INFO 10449 --- [           main] org.apache.curator.utils.Compatibility   : Running in ZooKeeper 3.4.x compatibility mode
+2019-03-26 09:38:04.310  INFO 10449 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Starting
+2019-03-26 09:38:04.325  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:zookeeper.version=3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, built on 06/29/2018 00:39 GMT
+2019-03-26 09:38:04.326  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:host.name=192.168.41.152
+2019-03-26 09:38:04.326  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.version=1.8.0_121
+2019-03-26 09:38:04.327  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.vendor=Oracle Corporation
+2019-03-26 09:38:04.327  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre
+2019-03-26 09:38:04.329  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.class.path=/usr/local/Cellar/maven/3.3.9/libexec/boot/plexus-classworlds-2.5.2.jar
+2019-03-26 09:38:04.330  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.library.path=/Users/cherry/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+2019-03-26 09:38:04.331  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.io.tmpdir=/var/folders/xd/y7ryhgkn3dxb19jkrx188c4c0000gn/T/
+2019-03-26 09:38:04.335  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:java.compiler=<NA>
+2019-03-26 09:38:04.336  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:os.name=Mac OS X
+2019-03-26 09:38:04.336  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:os.arch=x86_64
+2019-03-26 09:38:04.336  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:os.version=10.14.4
+2019-03-26 09:38:04.362  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:user.name=cherry
+2019-03-26 09:38:04.363  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:user.home=/Users/cherry
+2019-03-26 09:38:04.365  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Client environment:user.dir=/Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts
+2019-03-26 09:38:04.366  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@6ef512ae
+2019-03-26 09:38:04.433  INFO 10449 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2019-03-26 09:38:04.435  INFO 10449 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Default schema
+2019-03-26 09:38:04.461  INFO 10449 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to localhost/127.0.0.1:2181, initiating session
+2019-03-26 09:38:04.485  INFO 10449 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x169b7a4e4b10002, negotiated timeout = 60000
+2019-03-26 09:38:04.515  INFO 10449 --- [ain-EventThread] o.a.c.f.state.ConnectionStateManager     : State change: CONNECTED
+2019-03-26 09:38:04.614  WARN 10449 --- [           main] o.a.d.common.config.ConfigurationUtils   :  [DUBBO] You specified the config centre, but there's not even one single config item in it., dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.614  WARN 10449 --- [           main] o.a.d.common.config.ConfigurationUtils   :  [DUBBO] You specified the config centre, but there's not even one single config item in it., dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.615  INFO 10449 --- [           main] o.a.dubbo.common.logger.LoggerFactory    : using logger: org.apache.dubbo.common.logger.slf4j.Slf4jLoggerAdapter
+2019-03-26 09:38:04.622  INFO 10449 --- [           main] org.apache.dubbo.config.AbstractConfig   :  [DUBBO] There's no valid monitor config found, if you want to open monitor statistics for Dubbo, please make sure your monitor is configured properly., dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.661  INFO 10449 --- [           main] o.a.d.qos.protocol.QosProtocolWrapper    :  [DUBBO] qos won't be started because it is disabled. Please check dubbo.application.qos.enable is configured either in system property, dubbo.properties or XML/spring-boot configuration., dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.693  INFO 10449 --- [           main] o.a.d.r.zookeeper.ZookeeperRegistry      :  [DUBBO] Load registry store file /Users/cherry/.dubbo/dubbo-registry-reactive-dubbo-consumermvc-demo-127.0.0.1:2181.cache, data: {com.github.cherrythefatbunny.demo.api.PersonService=empty://192.168.1.6/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=configurators&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=6442&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553520956204 empty://192.168.1.6/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=routers&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=6442&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553520956204 dubbo://192.168.1.6:20880/com.github.cherrythefatbunny.demo.api.PersonService?anyhost=true&application=reactive-dubbo-provider-demo&bean.name=ServiceBean:com.github.cherrythefatbunny.demo.api.PersonService&default.proxy=reactivejavassist&dubbo=2.0.2&generic=false&interface=com.github.cherrythefatbunny.demo.api.PersonService&methods=getPersonNameList,getPersonNameById&pid=6349&release=2.7.0&revision=2.0.0-SNAPSHOT&side=provider&timestamp=1553520939655 empty://192.168.1.6/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=providers,configurators,routers&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=6442&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553520956204}, dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.711  INFO 10449 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Starting
+2019-03-26 09:38:04.712  INFO 10449 --- [           main] org.apache.zookeeper.ZooKeeper           : Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=60000 watcher=org.apache.curator.ConnectionState@284f0633
+2019-03-26 09:38:04.715  INFO 10449 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2019-03-26 09:38:04.716  INFO 10449 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to localhost/127.0.0.1:2181, initiating session
+2019-03-26 09:38:04.717  INFO 10449 --- [           main] o.a.c.f.imps.CuratorFrameworkImpl        : Default schema
+2019-03-26 09:38:04.719  INFO 10449 --- [localhost:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x169b7a4e4b10003, negotiated timeout = 60000
+2019-03-26 09:38:04.722  INFO 10449 --- [ain-EventThread] o.a.c.f.state.ConnectionStateManager     : State change: CONNECTED
+2019-03-26 09:38:04.723  INFO 10449 --- [           main] o.a.d.r.zookeeper.ZookeeperTransporter   :  [DUBBO] No valid zookeeper client found from cache, therefore create a new client for url. zookeeper://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?application=reactive-dubbo-consumermvc-demo&dubbo=2.0.2&interface=org.apache.dubbo.registry.RegistryService&logger=slf4j&pid=10449&qos.enable=false&release=2.7.0&timestamp=1553564284619, dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.789  INFO 10449 --- [           main] o.a.d.r.zookeeper.ZookeeperRegistry      :  [DUBBO] Register: consumer://192.168.41.152/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=consumers&check=false&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=10449&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553564284133, dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.830  INFO 10449 --- [           main] o.a.d.r.zookeeper.ZookeeperRegistry      :  [DUBBO] Subscribe: consumer://192.168.41.152/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=providers,configurators,routers&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=10449&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553564284133, dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:04.852  INFO 10449 --- [           main] o.a.d.r.zookeeper.ZookeeperRegistry      :  [DUBBO] Notify urls for subscribe url consumer://192.168.41.152/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=providers,configurators,routers&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=10449&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553564284133, urls: [dubbo://192.168.41.152:20880/com.github.cherrythefatbunny.demo.api.PersonService?anyhost=true&application=reactive-dubbo-provider-demo&bean.name=ServiceBean:com.github.cherrythefatbunny.demo.api.PersonService&default.proxy=reactivejavassist&dubbo=2.0.2&generic=false&interface=com.github.cherrythefatbunny.demo.api.PersonService&methods=getPersonNameList,getPersonNameById&pid=10382&release=2.7.0&revision=2.0.0-SNAPSHOT&side=provider&timestamp=1553564270089, empty://192.168.41.152/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=configurators&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=10449&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553564284133, empty://192.168.41.152/com.github.cherrythefatbunny.demo.api.PersonService?application=reactive-dubbo-consumermvc-demo&category=routers&dubbo=2.0.2&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=10449&qos.enable=false&release=2.7.0&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553564284133], dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:05.455  INFO 10449 --- [           main] o.a.d.remoting.transport.AbstractClient  :  [DUBBO] Successed connect to server /192.168.41.152:20880 from NettyClient 192.168.41.152 using dubbo version 2.7.0, channel is NettyChannel [channel=[id: 0xe0cc2d3b, L:/192.168.41.152:50371 - R:/192.168.41.152:20880]], dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:05.455  INFO 10449 --- [           main] o.a.d.remoting.transport.AbstractClient  :  [DUBBO] Start NettyClient 192.168.41.152/192.168.41.152 connect to the server /192.168.41.152:20880, dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:05.524  INFO 10449 --- [           main] org.apache.dubbo.config.AbstractConfig   :  [DUBBO] Refer dubbo service com.github.cherrythefatbunny.demo.api.PersonService from url zookeeper://127.0.0.1:2181/org.apache.dubbo.registry.RegistryService?anyhost=true&application=reactive-dubbo-consumermvc-demo&bean.name=ServiceBean:com.github.cherrythefatbunny.demo.api.PersonService&check=false&default.proxy=reactivejavassist&dubbo=2.0.2&generic=false&group=&interface=com.github.cherrythefatbunny.demo.api.PersonService&logger=slf4j&methods=getPersonNameList,getPersonNameById&pid=10449&qos.enable=false&register.ip=192.168.41.152&release=2.7.0&remote.application=reactive-dubbo-provider-demo&remote.timestamp=1553564270089&revision=2.0.0-SNAPSHOT&side=consumer&timestamp=1553564284133, dubbo version: 2.7.0, current host: 192.168.41.152
+2019-03-26 09:38:06.035  INFO 10449 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-26 09:38:06.456  INFO 10449 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.ProtocolConfig#0] have been binding by prefix of configuration properties : dubbo.protocol
+2019-03-26 09:38:06.484  INFO 10449 --- [           main] .f.a.DubboConfigBindingBeanPostProcessor : The properties of bean [name : org.apache.dubbo.config.ProviderConfig#0] have been binding by prefix of configuration properties : dubbo.provider
+2019-03-26 09:38:06.589  INFO 10449 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2019-03-26 09:38:06.597  INFO 10449 --- [           main] c.g.c.d.c.ConsumerMvcApplication         : Started ConsumerMvcApplication in 6.593 seconds (JVM running for 11.962)
+2019-03-26 09:40:15.382  INFO 10449 --- [nio-9090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-26 09:40:15.382  INFO 10449 --- [nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-03-26 09:40:15.408  INFO 10449 --- [nio-9090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 26 ms

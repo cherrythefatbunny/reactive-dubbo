@@ -73,6 +73,7 @@
                 <module>demo/provider</module>
                 <module>demo/consumer-mvc</module>
                 <module>demo/consumer-webflux</module>
+                <module>demo/benchmark</module>
             </modules>
         </profile>
         <!-- GPG Signature on release -->

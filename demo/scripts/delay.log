@@ -1,0 +1,55 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.cherrythefatbunny.demo:delay-service:jar:2.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ line 72, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building reactive dubbo::demo delay service 2.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ delay-service ---
+[INFO] Deleting /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../delay-service/target
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) > test-compile @ delay-service >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ delay-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ delay-service ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../delay-service/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ delay-service ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../delay-service/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ delay-service ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) < test-compile @ delay-service <<<
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.2.RELEASE:run (default-cli) @ delay-service ---
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.2.RELEASE)
+
+2019-03-26 09:36:56.181  INFO 10194 --- [           main] c.g.c.d.d.DelayServiceApplication        : Starting DelayServiceApplication on 192.168.41.152 with PID 10194 (/Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts/../delay-service/target/classes started by cherry in /Users/cherry/IdeaProjects/reactive-dubbo/demo/scripts)
+2019-03-26 09:36:56.308  INFO 10194 --- [           main] c.g.c.d.d.DelayServiceApplication        : No active profile set, falling back to default profiles: default
+2019-03-26 09:36:57.111  INFO 10194 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-03-26 09:36:57.116  INFO 10194 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-26 09:36:57.159  INFO 10194 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2019-03-26 09:36:59.276  INFO 10194 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 9091
+2019-03-26 09:36:59.282  INFO 10194 --- [           main] c.g.c.d.d.DelayServiceApplication        : Started DelayServiceApplication in 3.699 seconds (JVM running for 10.144)
+2019-03-26 09:38:40.575  INFO 10194 --- [ctor-http-nio-2] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2019-03-26 09:38:40.579  INFO 10194 --- [ctor-http-nio-2] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library

@@ -1,0 +1,7 @@
+com/github/cherrythefatbunny/demo/provider/ProviderApplication.class
+com/github/cherrythefatbunny/demo/provider/RedisConfiguration.class
+com/github/cherrythefatbunny/demo/provider/stub/EchoServiceStub.class
+META-INF/spring-autoconfigure-metadata.properties
+com/github/cherrythefatbunny/demo/provider/PersonServiceImpl.class
+com/github/cherrythefatbunny/demo/provider/EchoServiceImpl.class
+com/github/cherrythefatbunny/demo/provider/ReactivePersonServiceImpl.class

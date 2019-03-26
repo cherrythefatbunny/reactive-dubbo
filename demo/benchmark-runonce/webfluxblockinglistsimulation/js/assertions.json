@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.WebfluxblockinglistSimulation",
+  "simulationId": "webfluxblockinglistsimulation",
+  "start": 1553582614617,
+  "description": "",
+  "scenarios": ["now"],
+  "assertions": [
+
+  ]
+}

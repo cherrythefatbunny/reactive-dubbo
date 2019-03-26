@@ -27,11 +27,11 @@ public class InfrastructureApplication implements CommandLineRunner {
         Person p1 = new Person();
         p1.setId(101);
         p1.setNickName("cherry1");
-        p1.setFullName("Jack Ma");
+        p1.setFullName("User cherry1");
         Person p2 = new Person();
         p2.setId(102);
         p2.setNickName("cherry2");
-        p2.setFullName("Pony Ma");
+        p2.setFullName("User cherry2");
         Map<String,String> nickNames = new HashMap<>();
         nickNames.put(p1.getId()+"",p1.getNickName());
         nickNames.put(p2.getId()+"",p2.getNickName());

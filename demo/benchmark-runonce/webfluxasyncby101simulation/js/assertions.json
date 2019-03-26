@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.Webfluxasyncby101Simulation",
+  "simulationId": "webfluxasyncby101simulation",
+  "start": 1553582253814,
+  "description": "",
+  "scenarios": ["now"],
+  "assertions": [
+
+  ]
+}
