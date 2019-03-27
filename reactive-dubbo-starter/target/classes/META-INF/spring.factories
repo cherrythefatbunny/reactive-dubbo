@@ -1,6 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.github.cherrythefatbunny.reactive.dubbo.boot.ReactiveDubboAutoConfiguration
-org.springframework.context.ApplicationContextInitializer=\
-  com.github.cherrythefatbunny.reactive.dubbo.boot.ReactiveApplicationContextInitializer
-org.springframework.boot.env.EnvironmentPostProcessor=\
-  com.github.cherrythefatbunny.reactive.dubbo.boot.ReactiveDefaultPropertiesEnvironmentPostProcessor

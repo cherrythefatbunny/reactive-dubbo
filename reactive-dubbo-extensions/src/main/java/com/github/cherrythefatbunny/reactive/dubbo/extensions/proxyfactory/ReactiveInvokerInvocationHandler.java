@@ -9,7 +9,7 @@ import org.apache.dubbo.rpc.proxy.InvokerInvocationHandler;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
+import static com.github.cherrythefatbunny.reactive.dubbo.extensions.Constants.*;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -33,7 +33,7 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
         if (Publisher.class.isAssignableFrom(returnType)) {
             RpcInvocation invocation = createInvocation(method, args);
             if (Mono.class.isAssignableFrom(returnType)) {
-                invocation.setAttachment("Publisher","mono");
+                invocation.setAttachment(KEY_PUBLISHER_TYPE,VALUE_PUBLISHER_MONO);
                 return Mono.create(monoSink -> {
                     try {
                         CompletableFuture<Object> future
@@ -53,7 +53,7 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
                     }
                 });
             } else if (Flux.class.isAssignableFrom(returnType)) {
-                invocation.setAttachment("Publisher","flux");
+                invocation.setAttachment(KEY_PUBLISHER_TYPE,VALUE_PUBLISHER_FLUX);
                 return Flux.create(fluxSink -> {
                     try {
                         CompletableFuture<Object> future

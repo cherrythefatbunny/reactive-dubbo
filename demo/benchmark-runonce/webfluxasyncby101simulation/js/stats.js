@@ -16,18 +16,18 @@ stats: {
         "ko": "-"
     },
     "maxResponseTime": {
-        "total": "1099",
-        "ok": "1099",
+        "total": "1149",
+        "ok": "1149",
         "ko": "-"
     },
     "meanResponseTime": {
-        "total": "107",
-        "ok": "107",
+        "total": "108",
+        "ok": "108",
         "ko": "-"
     },
     "standardDeviation": {
-        "total": "21",
-        "ok": "21",
+        "total": "22",
+        "ok": "22",
         "ko": "-"
     },
     "percentiles1": {
@@ -36,18 +36,18 @@ stats: {
         "ko": "-"
     },
     "percentiles2": {
-        "total": "107",
-        "ok": "107",
+        "total": "108",
+        "ok": "108",
         "ko": "-"
     },
     "percentiles3": {
-        "total": "111",
-        "ok": "111",
+        "total": "114",
+        "ok": "114",
         "ko": "-"
     },
     "percentiles4": {
-        "total": "116",
-        "ok": "116",
+        "total": "147",
+        "ok": "147",
         "ko": "-"
     },
     "group1": {
@@ -95,18 +95,18 @@ stats: {
         "ko": "-"
     },
     "maxResponseTime": {
-        "total": "1099",
-        "ok": "1099",
+        "total": "1149",
+        "ok": "1149",
         "ko": "-"
     },
     "meanResponseTime": {
-        "total": "107",
-        "ok": "107",
+        "total": "108",
+        "ok": "108",
         "ko": "-"
     },
     "standardDeviation": {
-        "total": "21",
-        "ok": "21",
+        "total": "22",
+        "ok": "22",
         "ko": "-"
     },
     "percentiles1": {
@@ -115,18 +115,18 @@ stats: {
         "ko": "-"
     },
     "percentiles2": {
-        "total": "107",
-        "ok": "107",
+        "total": "108",
+        "ok": "108",
         "ko": "-"
     },
     "percentiles3": {
-        "total": "111",
-        "ok": "111",
+        "total": "114",
+        "ok": "114",
         "ko": "-"
     },
     "percentiles4": {
-        "total": "116",
-        "ok": "116",
+        "total": "147",
+        "ok": "148",
         "ko": "-"
     },
     "group1": {

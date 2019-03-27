@@ -8,7 +8,7 @@ import org.apache.dubbo.rpc.*;
 import org.apache.dubbo.rpc.proxy.AbstractProxyInvoker;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
+import static com.github.cherrythefatbunny.reactive.dubbo.extensions.Constants.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
@@ -30,15 +30,15 @@ public abstract class AbstractReactiveProxyInvoker<T> extends AbstractProxyInvok
 
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
-        String publisher = invocation.getAttachment("Publisher");
+        String publisher = invocation.getAttachment(KEY_PUBLISHER_TYPE);
         if(StringUtils.isBlank(publisher)) {
             return super.invoke(invocation);
         }
         RpcContext rpcContext = RpcContext.getContext();
         try {
             Object obj = doInvoke(proxy, invocation.getMethodName(), invocation.getParameterTypes(), invocation.getArguments());
-            Mono mono;
-            if(publisher.equals("mono")) {
+            Mono mono = null;
+            if(publisher.equals(VALUE_PUBLISHER_MONO)) {
                 mono = (Mono) obj;
             } else {
                 Flux<Object> flux = (Flux<Object>) obj;

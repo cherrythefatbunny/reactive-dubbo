@@ -8,7 +8,7 @@ import scala.concurrent.duration._
 class Webfluxblockingby101Simulation extends Simulation {
 
   val baseUrl = "http://localhost:8080"
-  val sim_users = 200
+  val sim_users = 100
 
   val httpConf = http.baseUrl(baseUrl)
 
