@@ -8,7 +8,7 @@ import scala.concurrent.duration._
 class MvclistSimulation extends Simulation {
 
   val baseUrl = "http://localhost:9090"
-  val sim_users = 2500
+  val sim_users = 1000
 
   val httpConf = http.baseUrl(baseUrl)
 
