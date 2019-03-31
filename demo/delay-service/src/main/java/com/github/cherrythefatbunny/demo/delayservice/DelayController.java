@@ -33,11 +33,6 @@ public class DelayController implements InitializingBean {
                 .delayElement(Duration.ofMillis(millis))
                 .flatMapMany(Flux::fromIterable);
     }
-    @GetMapping("by")
-    public Mono<String> getPersonBy(@RequestParam int id) {
-        ReactiveHashOperations<String, String, String> ops = stringReactiveTemplate.opsForHash();
-        return ops.get("nickname",id+"").onErrorReturn(null);
-    }
     @Override
     public void afterPropertiesSet() throws Exception {
         hashOperations = jsonReactiveTemplate.opsForHash();

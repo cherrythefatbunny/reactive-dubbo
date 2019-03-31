@@ -4,7 +4,7 @@ import org.apache.dubbo.common.bytecode.Proxy;
 import org.apache.dubbo.rpc.Invoker;
 
 /**
- * reactive implementation of JavassistProxyFactory
+ * Reactive implementation of JavassistProxyFactory
  * @author cherry
  */
 public class ReactiveJavassistProxyFactory extends AbstractReactiveProxyFactory {

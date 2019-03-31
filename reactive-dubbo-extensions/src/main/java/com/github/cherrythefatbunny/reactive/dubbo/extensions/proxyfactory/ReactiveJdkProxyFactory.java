@@ -5,7 +5,7 @@ import org.apache.dubbo.rpc.Invoker;
 import java.lang.reflect.Proxy;
 
 /**
- * reactive implementation of JdkProxyFactory
+ * Reactive implementation of JdkProxyFactory
  * @author cherry
  */
 public class ReactiveJdkProxyFactory extends AbstractReactiveProxyFactory {

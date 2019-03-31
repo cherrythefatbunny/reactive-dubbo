@@ -36,15 +36,14 @@ Both provider and consumer should add reactive-dubbo-starter dependency
 <dependency>
     <groupId>com.github.cherrythefatbunny</groupId>
     <artifactId>reactive-dubbo-starter</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>LATESTVERSION</version>
 </dependency>
 ```
 ### Service definition
-For provider side,you should define reactive services by specifying a reactive proxy factory(e.g.,reactivejavassist,reactivejdk. )
+As provider side,you can define reactive services without specifying a reactive proxy factory(the default proxy factory has been changed to `reactivejavassist` by [ReactiveDefaultPropertiesEnvironmentPostProcessor.java](https://github.com/cherrythefatbunny/reactive-dubbo/blob/master/reactive-dubbo-starter/src/main/java/com/github/cherrythefatbunny/reactive/dubbo/boot/ReactiveDefaultPropertiesEnvironmentPostProcessor.java) )
 ```java
-@Service(proxy = "reactivejavassist")
+@Service
 public class ReactiveServiceImpl implements ReactiveService {
-    
 }
 ```
 
@@ -63,36 +62,59 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //if the invocation returns a publisher,make a publisher wrapping the real invocation
         Class returnType = method.getReturnType();
-        if(Publisher.class.isAssignableFrom(returnType)) {
-            RpcInvocation invocation = new RpcInvocation(method, args);
-            if(Mono.class.isAssignableFrom(returnType)) {
-                invocation.setAttachment("Publisher","mono");
-                return Mono.fromCallable(() -> {
+        if (Publisher.class.isAssignableFrom(returnType)) {
+            RpcInvocation invocation = createInvocation(method, args);
+            if (Mono.class.isAssignableFrom(returnType)) {
+                invocation.setAttachment(KEY_PUBLISHER_TYPE,VALUE_PUBLISHER_MONO);
+                return Mono.create(monoSink -> {
                     try {
-                        return invoker.invoke(invocation).recreate();
+                        CompletableFuture<Object> future
+                                = (CompletableFuture<Object>) invoker.invoke(invocation).recreate();
+                        future.whenComplete((v, t) -> {
+                            if (t != null) {
+                                monoSink.error(t);
+                            } else {
+                                monoSink.success(v);
+                            }
+                        });
                     } catch (Throwable throwable) {
-                        if(LOGGER.isWarnEnabled()) {
-                            LOGGER.warn("mono call invoker error", throwable);
+                        if(LOGGER.isErrorEnabled()) {
+                            LOGGER.error("mono invocation",throwable);
                         }
-                        throw new Exception(throwable);
+                        monoSink.error(throwable);
                     }
                 });
-            } else if(Flux.class.isAssignableFrom(returnType)) {
-                invocation.setAttachment("Publisher","flux");
-                return Flux.fromIterable(Mono.fromCallable(() -> {
+            } else if (Flux.class.isAssignableFrom(returnType)) {
+                invocation.setAttachment(KEY_PUBLISHER_TYPE,VALUE_PUBLISHER_FLUX);
+                return Flux.create(fluxSink -> {
                     try {
-                        return (List)invoker.invoke(invocation).recreate();
+                        CompletableFuture<Object> future
+                                = (CompletableFuture<Object>) invoker.invoke(invocation).recreate();
+                        future.whenComplete((v, t) -> {
+                            if (t != null) {
+                                fluxSink.error(t);
+                            } else if (v instanceof List){
+                                List list = (List) v;
+                                if(list!=null) {
+                                    list.forEach(fluxSink::next);
+                                }
+                                fluxSink.complete();
+                            } else {
+                                Exception ex = new IllegalArgumentException("unexpected return type:"+v.getClass());
+                                fluxSink.error(ex);
+                            }
+                        });
                     } catch (Throwable throwable) {
-                        if(LOGGER.isWarnEnabled()) {
-                            LOGGER.warn("flux call invoker error", throwable);
+                        if(LOGGER.isErrorEnabled()) {
+                            LOGGER.error("flux invocation",throwable);
                         }
-                        throw new Exception(throwable);
+                        fluxSink.error(throwable);
                     }
-                }).block());
+                });
             } else {
                 //TODO other publishers support
                 throw new IllegalArgumentException(
-                        String.format("%s not supported now",method.getReturnType().getSimpleName()));
+                        String.format("%s not supported now", method.getReturnType().getSimpleName()));
             }
         }
         return super.invoke(proxy, method, args);
@@ -101,39 +123,43 @@ public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
 ```
 
 ### Reactive invoker
-A reactive invoker intercepts a formal remote request and convert its result into publisher's parameterized type(e.g. `Mono<String>` -> `String`,`Flux<String>` -> `List<String>`)
-
-[ReactiveProxyFactory.java](https://github.com/cherrythefatbunny/reactive-dubbo/blob/master/reactive-dubbo-extensions/src/main/java/com/github/cherrythefatbunny/reactive/dubbo/extensions/proxyfactory/ReactiveProxyFactory.java):
+A reactive invoker intercepts a formal remote request and convert its result into publisher's parameterized type(e.g. `Mono<String>` -> `String`,`Flux<String>` -> `List<String>`).The invoker combines reactive provider apis with the CompletableFuture result which is greatly improved since Dubbo 2.7.0 
+[AbstractReactiveProxyInvoker.java](https://github.com/cherrythefatbunny/reactive-dubbo/blob/master/reactive-dubbo-extensions/src/main/java/com/github/cherrythefatbunny/reactive/dubbo/extensions/proxyfactory/AbstractReactiveProxyInvoker.java):
 ```java
-public abstract class ReactiveProxyFactory extends AbstractProxyFactory {
+public abstract class AbstractReactiveProxyInvoker<T> extends AbstractProxyInvoker<T> {
     @Override
-    public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) throws RpcException {
-        Invoker<T> invoker = delegating.getInvoker(proxy, type, url);
-        Invoker<T> wrapper = (Invoker<T>) Proxy.newProxyInstance(getClass().getClassLoader(),
-                new Class[]{Invoker.class}, new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                Object ret = method.invoke(invoker, args);
-                //extra process dealing with remote requests
-                if(method.getName().equals("invoke")&&
-                        !LOCAL_PROTOCOL.equals(((RpcInvocation) args[0]).getInvoker().getUrl().getProtocol())) {
-                    RpcResult rpcResult = (RpcResult) ret;
-                    Object val = rpcResult.getValue();
-                    //retrieve real returned value and create new RpcResult
-                    if(val instanceof Mono) {
-                        Mono mono = (Mono) val;
-                        return new RpcResult(mono.block());
-                    }
-                    //retrieve real returned value,collect with an ArrayList and create new RpcResult
-                    if(val instanceof Flux) {
-                        Flux<Object> flux = (Flux) val;
-                        return new RpcResult(flux.collect(ArrayList::new, ArrayList::add).block());
-                    }
-                }
-                return ret;
+    public Result invoke(Invocation invocation) throws RpcException {
+        String publisher = invocation.getAttachment(KEY_PUBLISHER_TYPE);
+        if(StringUtils.isBlank(publisher)) {
+            return super.invoke(invocation);
+        }
+        RpcContext rpcContext = RpcContext.getContext();
+        try {
+            Object obj = doInvoke(proxy, invocation.getMethodName(), invocation.getParameterTypes(), invocation.getArguments());
+            Mono mono = null;
+            if(publisher.equals(VALUE_PUBLISHER_MONO)) {
+                mono = (Mono) obj;
+            } else if(publisher.equals(VALUE_PUBLISHER_FLUX)) {
+                Flux<Object> flux = (Flux<Object>) obj;
+                mono = flux.collect(ArrayList::new,ArrayList::add);
             }
-        });
-        return wrapper;
+            if(mono==null) {
+                CompletableFuture future = new CompletableFuture();
+                Exception ex = new IllegalArgumentException("unexpected publisher type:"+publisher);
+                future.completeExceptionally(ex);
+                return new AsyncRpcResult(future);
+            } else {
+                return new AsyncRpcResult(mono.toFuture());
+            }
+        } catch (InvocationTargetException e) {
+            // TODO async throw exception before async thread write back, should stop asyncContext
+            if (rpcContext.isAsyncStarted() && !rpcContext.stopAsync()) {
+                LOGGER.error("Provider async started, but got an exception from the original method, cannot write the exception back to consumer because an async result may have returned the new thread.", e);
+            }
+            return new RpcResult(e.getTargetException());
+        } catch (Throwable e) {
+            throw new RpcException("Failed to invoke remote proxy method " + invocation.getMethodName() + " to " + getUrl() + ", cause: " + e.getMessage(), e);
+        }
     }
 }
 ```

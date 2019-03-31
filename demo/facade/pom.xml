@@ -6,7 +6,11 @@
     <artifactId>facade</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <name>reactive dubbo::demo facade</name>
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -27,4 +31,18 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

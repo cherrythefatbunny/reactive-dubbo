@@ -8,12 +8,17 @@ import org.apache.dubbo.rpc.*;
 import org.apache.dubbo.rpc.proxy.AbstractProxyInvoker;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import static com.github.cherrythefatbunny.reactive.dubbo.extensions.Constants.*;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
+import static com.github.cherrythefatbunny.reactive.dubbo.extensions.Constants.*;
+
+/**
+ * Abstraction of reactive proxy invoker which will delegate consumer in provider side.
+ * @author cherry
+ */
 public abstract class AbstractReactiveProxyInvoker<T> extends AbstractProxyInvoker<T> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractReactiveProxyInvoker.class);
@@ -40,17 +45,18 @@ public abstract class AbstractReactiveProxyInvoker<T> extends AbstractProxyInvok
             Mono mono = null;
             if(publisher.equals(VALUE_PUBLISHER_MONO)) {
                 mono = (Mono) obj;
-            } else {
+            } else if(publisher.equals(VALUE_PUBLISHER_FLUX)) {
                 Flux<Object> flux = (Flux<Object>) obj;
                 mono = flux.collect(ArrayList::new,ArrayList::add);
             }
-            CompletableFuture future = new CompletableFuture();
-            Consumer<? extends Throwable> errorHandler = future::completeExceptionally;
-            mono.doOnError(errorHandler)
-                .doOnCancel(() -> future.cancel(true))
-                .doOnSuccess(future::complete)
-                .subscribe();
-            return new AsyncRpcResult(future);
+            if(mono==null) {
+                CompletableFuture future = new CompletableFuture();
+                Exception ex = new IllegalArgumentException("unexpected publisher type:"+publisher);
+                future.completeExceptionally(ex);
+                return new AsyncRpcResult(future);
+            } else {
+                return new AsyncRpcResult(mono.toFuture());
+            }
         } catch (InvocationTargetException e) {
             // TODO async throw exception before async thread write back, should stop asyncContext
             if (rpcContext.isAsyncStarted() && !rpcContext.stopAsync()) {

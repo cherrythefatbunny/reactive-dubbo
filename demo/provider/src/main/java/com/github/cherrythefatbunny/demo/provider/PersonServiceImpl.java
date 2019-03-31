@@ -39,8 +39,9 @@ public class PersonServiceImpl implements PersonService, InitializingBean {
 
     @Override
     public List<String> getPersonNameList() {
-        return getPersonList()==null?null:
-                Arrays.asList(getPersonList()).stream()
+        Person[] personList = getPersonList();
+        return personList==null?null:
+                Arrays.asList(personList).stream()
                         .map(Person::getFullName)
                         .map(echoService::curse)
                         .collect(Collectors.toList());

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * reactive implementation of InvokerInvocationHandler
+ * Reactive implementation of InvokerInvocationHandler which actually communicate with the real providers.
  * @author cherry
  */
 public class ReactiveInvokerInvocationHandler extends InvokerInvocationHandler {
