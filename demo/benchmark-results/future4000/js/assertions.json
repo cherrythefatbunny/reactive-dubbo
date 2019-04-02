@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.future",
+  "simulationId": "future",
+  "start": 1553961602154,
+  "description": "",
+  "scenarios": ["now"],
+  "assertions": [
+
+  ]
+}

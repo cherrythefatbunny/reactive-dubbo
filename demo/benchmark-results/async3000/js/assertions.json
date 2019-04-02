@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.async",
+  "simulationId": "async",
+  "start": 1553961072431,
+  "description": "",
+  "scenarios": ["now"],
+  "assertions": [
+
+  ]
+}
